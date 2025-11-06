@@ -1,0 +1,29 @@
+name: Validate Artifact Upload Configuration Test Content
+url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-testdriver-workflow-artifact-upload-configuration.yaml
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-testdriver-workflow-artifact-upload-configuration.yaml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: scroll
+    selector: '.react-code-file-contents'
+assertions:
+  - type: visible
+    selector: '.react-code-file-contents:has-text("name: Verify TestDriver Workflow Artifact Upload Configuration")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("Upload Test Results")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("if: always()")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("actions/upload-artifact@v4")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("testdriver-results")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("if-no-files-found: ignore")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("assertions:")'
+  - type: count
+    selector: '.react-code-file-contents:has-text("type: visible")'
+    value: 6
