@@ -1,0 +1,25 @@
+name: Verify Core Features Section Rendering
+url: https://github.com/ianjennings/planify
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify
+  - action: wait
+    selector: article.markdown-body
+  - action: scroll
+    selector: 'article.markdown-body h2'
+  - action: wait
+    selector: 'article.markdown-body:has-text("Core Functionality")'
+assertions:
+  - type: text
+    selector: 'article.markdown-body h2:has-text("Features")'  
+    value: ✨ Features
+  - type: visible
+    selector: 'article.markdown-body:has-text("Modern Interface")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("Drag & Drop")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("Todoist Integration")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("Nextcloud Support")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("Smart Notifications")'

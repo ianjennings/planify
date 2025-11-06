@@ -1,0 +1,20 @@
+name: Validate README Badges and Links
+url: https://github.com/ianjennings/planify
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify
+  - action: wait
+    selector: article.markdown-body
+  - action: scroll
+    selector: 'article.markdown-body img[alt="License: GPL v3"]'
+assertions:
+  - type: visible
+    selector: 'article.markdown-body img[alt="License: GPL v3"]'
+  - type: visible
+    selector: 'article.markdown-body img[alt="Please do not theme this app"]'
+  - type: visible
+    selector: 'article.markdown-body a[href*="stopthemingmy.app"]'
+  - type: attribute
+    selector: 'article.markdown-body a[href*="gpl-3.0"]'
+    attribute: href
+    value: http://www.gnu.org/licenses/gpl-3.0
