@@ -1,0 +1,31 @@
+name: Verify Nested TestDriver Test Generation Meta-Structure
+url: https://github.com/ianjennings/planify/pulls
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/pulls
+  - action: wait
+    selector: '.js-issue-row'
+  - action: click
+    selector: 'a:has-text("🧪 Tests for #3: 🧪 Tests for #2: 🧪 Tests for #1")'
+  - action: wait
+    selector: '.comment-body'
+  - action: scroll
+    selector: '.comment-body'
+assertions:
+  - type: visible
+    selector: '.comment-body:has-text("Generated Tests")'
+  - type: visible
+    selector: '.comment-body:has-text("Mechanic has analyzed this PR and generated **3** tests")'
+  - type: visible
+    selector: '.comment-body:has-text("Verify TestDriver Workflow Artifact Upload Configuration")'
+  - type: visible
+    selector: '.comment-body:has-text("Verify Complete TestDriver Test Suite Inventory")'
+  - type: visible
+    selector: '.comment-body:has-text("Verify TestDriver Workflow Triggers and Node Version")'
+  - type: visible
+    selector: '.comment-body:has-text("Rationale:")'
+  - type: visible
+    selector: '.comment-body:has-text("View Test YAML")'
+  - type: count
+    selector: '.comment-body details:has-text("View Test YAML")'
+    value: 3
