@@ -1,0 +1,29 @@
+name: Validate Self-Referential Test File Has Correct Count Assertion
+url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-self-referential-test-file-creation.yaml
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-self-referential-test-file-creation.yaml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: scroll
+    selector: '.react-code-file-contents'
+assertions:
+  - type: visible
+    selector: '.react-code-file-contents:has-text("name: Verify Self-Referential Test File Creation")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("url: https://github.com/ianjennings/planify/tree/main/.testdriver")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("verify-testdriver-workflow-artifact-upload-configuration.yaml")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("verify-complete-testdriver-test-suite-inventory.yaml")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("verify-testdriver-workflow-triggers-and-node-version.yaml")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("type: count")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("value: 13")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("assertions:")'
+  - type: count
+    selector: '.react-code-file-contents:has-text("type: visible")'
+    value: 3
