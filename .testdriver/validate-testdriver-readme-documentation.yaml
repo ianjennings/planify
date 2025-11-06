@@ -1,0 +1,22 @@
+name: Validate TestDriver README Documentation
+url: https://github.com/ianjennings/planify/blob/main/.testdriver/README.md
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/README.md
+  - action: wait
+    selector: 'article.markdown-body'
+  - action: scroll
+    selector: 'article.markdown-body'
+assertions:
+  - type: visible
+    selector: 'article.markdown-body h1:has-text("TestDriver Tests")'
+  - type: visible
+    selector: 'article.markdown-body h2:has-text("Running Tests Locally")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("npx testdriverai@latest run .testdriver/*.yaml")'
+  - type: visible
+    selector: 'article.markdown-body h2:has-text("Configuration")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("TD_API_KEY")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("GitHub repository secrets")'

@@ -1,0 +1,22 @@
+name: Verify TestDriver Workflow Artifact Upload Configuration
+url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: scroll
+    selector: '.react-code-file-contents'
+assertions:
+  - type: visible
+    selector: '.react-code-file-contents:has-text("Upload Test Results")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("if: always()")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("actions/upload-artifact@v4")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("name: testdriver-results")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("path: .testdriver/results/")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("if-no-files-found: ignore")'
