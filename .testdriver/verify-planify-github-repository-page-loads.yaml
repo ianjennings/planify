@@ -1,0 +1,17 @@
+name: Verify Planify GitHub Repository Page Loads
+url: https://github.com/ianjennings/planify
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify
+  - action: wait
+    selector: '[data-testid="repository-container"]'
+  - action: scroll
+    selector: article.markdown-body
+assertions:
+  - type: visible
+    selector: article.markdown-body
+  - type: text
+    selector: 'h1'
+    value: planify
+  - type: visible
+    selector: 'article.markdown-body img[alt*="Planify"]'

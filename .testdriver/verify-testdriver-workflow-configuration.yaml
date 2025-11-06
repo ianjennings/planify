@@ -1,0 +1,24 @@
+name: Verify TestDriver Workflow Configuration
+url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: scroll
+    selector: '.react-code-file-contents'
+assertions:
+  - type: visible
+    selector: '.react-code-file-contents:has-text("name: TestDriver Tests")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("pull_request")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("push")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("workflow_dispatch")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("TD_API_KEY")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("npx testdriverai@latest run .testdriver/*.yaml")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("actions/upload-artifact@v4")'
