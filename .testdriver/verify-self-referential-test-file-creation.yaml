@@ -1,0 +1,19 @@
+name: Verify Self-Referential Test File Creation
+url: https://github.com/ianjennings/planify/tree/main/.testdriver
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/tree/main/.testdriver
+  - action: wait
+    selector: '[aria-labelledby="files"]'
+  - action: scroll
+    selector: '[aria-labelledby="files"]'
+assertions:
+  - type: visible
+    selector: 'a[href*="verify-testdriver-workflow-artifact-upload-configuration.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-complete-testdriver-test-suite-inventory.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-testdriver-workflow-triggers-and-node-version.yaml"]'
+  - type: count
+    selector: 'a[href$=".yaml"]'
+    value: 13
