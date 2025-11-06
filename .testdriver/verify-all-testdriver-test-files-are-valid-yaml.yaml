@@ -1,0 +1,28 @@
+name: Verify All TestDriver Test Files Are Valid YAML
+url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-testdriver-workflow-configuration.yaml
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-testdriver-workflow-configuration.yaml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: scroll
+    selector: '.react-code-file-contents'
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/validate-testdriver-readme-documentation.yaml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/verify-testdriver-test-files-directory-structure.yaml
+  - action: wait
+    selector: '.react-code-file-contents'
+assertions:
+  - type: visible
+    selector: '.react-code-file-contents:has-text("name:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("url:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("steps:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("assertions:")'
+  - type: not-visible
+    selector: '.flash-error'

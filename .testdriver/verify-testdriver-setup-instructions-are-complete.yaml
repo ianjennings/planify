@@ -1,0 +1,24 @@
+name: Verify TestDriver Setup Instructions Are Complete
+url: https://github.com/ianjennings/planify/blob/main/.testdriver/README.md
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.testdriver/README.md
+  - action: wait
+    selector: 'article.markdown-body'
+  - action: scroll
+    selector: 'article.markdown-body'
+assertions:
+  - type: visible
+    selector: 'article.markdown-body code:has-text("npx testdriverai@latest run .testdriver/*.yaml")'
+  - type: visible
+    selector: 'article.markdown-body code:has-text("export TD_API_KEY")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("GitHub repository secrets")'
+  - type: visible
+    selector: 'article.markdown-body:has-text("TD_API_KEY")'
+  - type: text
+    selector: 'article.markdown-body h1'
+    value: TestDriver Tests
+  - type: count
+    selector: 'article.markdown-body h2'
+    value: 2

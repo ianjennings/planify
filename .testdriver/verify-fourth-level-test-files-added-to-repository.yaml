@@ -1,0 +1,21 @@
+name: Verify Fourth-Level Test Files Added to Repository
+url: https://github.com/ianjennings/planify/tree/main/.testdriver
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/tree/main/.testdriver
+  - action: wait
+    selector: '[aria-labelledby="files"]'
+  - action: scroll
+    selector: '[aria-labelledby="files"]'
+assertions:
+  - type: visible
+    selector: 'a[href*="verify-nested-testdriver-test-generation-meta-structure.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-self-referential-test-file-creation.yaml"]'
+  - type: visible
+    selector: 'a[href*="validate-artifact-upload-configuration-test-content.yaml"]'
+  - type: count
+    selector: 'a[href$=".yaml"]'
+    value: 16
+  - type: visible
+    selector: 'a[href*=".testdriver/README.md"]'

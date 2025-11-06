@@ -1,0 +1,28 @@
+name: Verify TestDriver Workflow Triggers and Node Version
+url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/blob/main/.github/workflows/testdriver.yml
+  - action: wait
+    selector: '.react-code-file-contents'
+  - action: scroll
+    selector: '.react-code-file-contents'
+assertions:
+  - type: visible
+    selector: '.react-code-file-contents:has-text("on:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("pull_request:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("branches: [ main, master ]")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("push:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("workflow_dispatch:")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("Setup Node.js")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("actions/setup-node@v4")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("node-version: \'20\'")'
+  - type: visible
+    selector: '.react-code-file-contents:has-text("uses: actions/checkout@v4")'

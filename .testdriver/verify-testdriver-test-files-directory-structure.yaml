@@ -1,0 +1,21 @@
+name: Verify TestDriver Test Files Directory Structure
+url: https://github.com/ianjennings/planify/tree/main/.testdriver
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/tree/main/.testdriver
+  - action: wait
+    selector: '[aria-labelledby="files"]'
+  - action: scroll
+    selector: '[aria-labelledby="files"]'
+assertions:
+  - type: visible
+    selector: 'a[href*=".testdriver/README.md"]'
+  - type: visible
+    selector: 'a[href*="validate-readme-badges-and-links.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-core-features-section-rendering.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-planify-github-repository-page-loads.yaml"]'
+  - type: text
+    selector: '[aria-labelledby="files"]'
+    value: 4 files

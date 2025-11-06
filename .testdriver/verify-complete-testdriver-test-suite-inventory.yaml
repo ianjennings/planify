@@ -1,0 +1,33 @@
+name: Verify Complete TestDriver Test Suite Inventory
+url: https://github.com/ianjennings/planify/tree/main/.testdriver
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/tree/main/.testdriver
+  - action: wait
+    selector: '[aria-labelledby="files"]'
+  - action: scroll
+    selector: '[aria-labelledby="files"]'
+assertions:
+  - type: visible
+    selector: 'a[href*=".testdriver/README.md"]'
+  - type: visible
+    selector: 'a[href*="validate-readme-badges-and-links.yaml"]'
+  - type: visible
+    selector: 'a[href*="validate-testdriver-readme-documentation.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-all-testdriver-test-files-are-valid-yaml.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-core-features-section-rendering.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-planify-github-repository-page-loads.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-testdriver-setup-instructions-are-complete.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-testdriver-test-files-directory-structure.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-testdriver-workflow-configuration.yaml"]'
+  - type: visible
+    selector: 'a[href*="verify-testdriver-workflow-executes-successfully.yaml"]'
+  - type: count
+    selector: 'a[href$=".yaml"]'
+    value: 10

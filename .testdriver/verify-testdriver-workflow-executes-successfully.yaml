@@ -1,0 +1,18 @@
+name: Verify TestDriver Workflow Executes Successfully
+url: https://github.com/ianjennings/planify/actions
+steps:
+  - action: navigate
+    url: https://github.com/ianjennings/planify/actions
+  - action: wait
+    selector: '[data-testid="workflows-sidebar"]'
+  - action: click
+    selector: 'a:has-text("TestDriver Tests")'
+  - action: wait
+    selector: '.PageHeader'
+assertions:
+  - type: visible
+    selector: 'a:has-text("TestDriver Tests")'
+  - type: visible
+    selector: '.PageHeader:has-text("TestDriver Tests")'
+  - type: visible
+    selector: '[data-testid="workflows-sidebar"]:has-text("TestDriver Tests")'
